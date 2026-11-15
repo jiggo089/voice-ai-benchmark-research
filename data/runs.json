@@ -1,0 +1,6714 @@
+{
+  "description": "Synthetic test results, aggregate metrics only; no real conversation transcripts, recordings, credentials or identity metadata.",
+  "runs": [
+    {
+      "id": "058cc349a245445e9398ed105345b75c",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "openai/realtime-reference-aec0",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1963,
+            "file_end_to_first_received_audio": 3477,
+            "interrupt_file_end_to_transcript": 3143,
+            "interrupt_file_end_to_audio_after_transcript": 4030
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2991
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 297
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 3553
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26ee774190eb4ba7b56b0bf5d939838d",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 1.0,
+          "post_interrupt_assistant_turns": 0,
+          "error_present": false
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "26f4e5b7e7084906960b4d72c580728f",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "onyx",
+      "config": {
+        "model": "openai/realtime-reference-aec0",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1972,
+            "file_end_to_first_received_audio": 3188,
+            "interrupt_file_end_to_transcript": 1930,
+            "interrupt_file_end_to_audio_after_transcript": 3386
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2682
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 234
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2961
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2cac3534f7d24656a7b9c34fb63ae8a5",
+      "fixture_set": "complex-v2",
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:whisper-podlodka-turbo",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.08,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 3051,
+            "file_end_to_first_received_audio": 6155
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 2325
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2904
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1564,
+              "ttft_ms": 575
+            },
+            {
+              "type": "response",
+              "duration_ms": 5320
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2060,
+              "ttfb_ms": 2031
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1319,
+              "ttfb_ms": 1309
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2552,
+            "file_end_to_first_received_audio": 6013
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1807
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2386
+            },
+            {
+              "type": "response",
+              "duration_ms": 5154
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1599,
+              "ttfb_ms": 1565
+            },
+            {
+              "type": "llm",
+              "duration_ms": 4811,
+              "ttft_ms": 918
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1992,
+              "ttfb_ms": 1980
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 938,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1666
+            },
+            {
+              "type": "eou",
+              "duration_ms": 801
+            },
+            {
+              "type": "stt",
+              "duration_ms": 1367
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1143,
+              "ttft_ms": 454
+            },
+            {
+              "type": "tts",
+              "duration_ms": 100
+            },
+            {
+              "type": "eou",
+              "duration_ms": 0
+            },
+            {
+              "type": "llm",
+              "duration_ms": 3602,
+              "ttft_ms": 775
+            },
+            {
+              "type": "response",
+              "duration_ms": 5878
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2624,
+              "ttfb_ms": 2577
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1487,
+              "ttfb_ms": 1477
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.176,
+          "interrupt_request_preserved": false,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": false,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2130,
+            "file_end_to_first_received_audio": 5617,
+            "interrupt_file_end_to_transcript": 3341,
+            "interrupt_file_end_to_audio_after_transcript": 3344
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1332
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1911
+            },
+            {
+              "type": "response",
+              "duration_ms": 4728
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2281,
+              "ttfb_ms": 2245
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2255,
+              "ttfb_ms": 2241
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3481,
+              "ttfb_ms": 3455
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3142,
+              "ttfb_ms": 3119
+            },
+            {
+              "type": "response",
+              "duration_ms": 2001
+            },
+            {
+              "type": "stt",
+              "duration_ms": 2616
+            },
+            {
+              "type": "llm",
+              "duration_ms": 13785,
+              "ttft_ms": 731
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1482
+            },
+            {
+              "type": "eou",
+              "duration_ms": 3195
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2081,
+              "ttft_ms": 518
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2146,
+              "ttfb_ms": 2128
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1553,
+              "ttfb_ms": 1544
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2032,
+              "ttfb_ms": 2020
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4130,
+              "ttfb_ms": 4097
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2385,
+            "file_end_to_first_received_audio": 5129
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1665
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2236
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2006,
+              "ttft_ms": 1160
+            },
+            {
+              "type": "response",
+              "duration_ms": 4299
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1283,
+              "ttfb_ms": 1257
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1321,
+              "ttfb_ms": 1313
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e6c3890c2304839a60e82d790b6ae63",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "nova",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1808,
+            "file_end_to_first_received_audio": 8960,
+            "interrupt_file_end_to_transcript": 1547,
+            "interrupt_file_end_to_audio_after_transcript": 4534
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1103
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1683
+            },
+            {
+              "type": "response",
+              "duration_ms": 8156
+            },
+            {
+              "type": "tts",
+              "duration_ms": 5188,
+              "ttfb_ms": 5118
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4801,
+              "ttfb_ms": 4760
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2878,
+              "ttfb_ms": 2855
+            },
+            {
+              "type": "stt",
+              "duration_ms": 815
+            },
+            {
+              "type": "llm",
+              "duration_ms": 15359,
+              "ttft_ms": 814
+            },
+            {
+              "type": "tts",
+              "duration_ms": 572
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1395
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1219,
+              "ttft_ms": 971
+            },
+            {
+              "type": "response",
+              "duration_ms": 3699
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1667,
+              "ttfb_ms": 1643
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31382bf94daa41e8a1526bf26e606c6e",
+      "fixture_set": "complex-v2",
+      "fixture_voice": null,
+      "config": {
+        "model": "openai/realtime-reference",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 3.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2022,
+            "file_end_to_first_received_audio": 4157
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 3757
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2061,
+            "file_end_to_first_received_audio": 2997
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2571
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1822,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2240
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.353,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1871,
+            "file_end_to_first_received_audio": 3325,
+            "interrupt_file_end_to_transcript": 1785,
+            "interrupt_file_end_to_audio_after_transcript": 4310
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2817
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 767
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 3900
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1872,
+            "file_end_to_first_received_audio": 3653
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 3272
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3214040a7d29429c8c00af5a2bd553d0",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2006,
+            "file_end_to_first_received_audio": 6685,
+            "interrupt_file_end_to_transcript": 1558,
+            "interrupt_file_end_to_audio_after_transcript": 5080
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1217
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1797
+            },
+            {
+              "type": "response",
+              "duration_ms": 5243
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2303,
+              "ttfb_ms": 2263
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2810,
+              "ttfb_ms": 2792
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2002,
+              "ttfb_ms": 1984
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2443,
+              "ttfb_ms": 2419
+            },
+            {
+              "type": "stt",
+              "duration_ms": 813
+            },
+            {
+              "type": "llm",
+              "duration_ms": 13197,
+              "ttft_ms": 964
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1879
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1392
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1024,
+              "ttft_ms": 753
+            },
+            {
+              "type": "response",
+              "duration_ms": 3713
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1888,
+              "ttfb_ms": 1855
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3845c6d2aea54bb4a5a57c85349d295e",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "openai/realtime-reference-aec0",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2087,
+            "file_end_to_first_received_audio": 5013
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 4614
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1905,
+            "file_end_to_first_received_audio": 2549
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2127
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1672,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2012
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1920,
+            "file_end_to_first_received_audio": 2923,
+            "interrupt_file_end_to_transcript": 1892,
+            "interrupt_file_end_to_audio_after_transcript": 2777
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2469
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 236
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2362
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1843,
+            "file_end_to_first_received_audio": 2616
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2201
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50cda2fa388143559c1035197b04ebd5",
+      "fixture_set": "complex-v2",
+      "fixture_voice": null,
+      "config": {
+        "model": "openai/realtime-reference",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 3.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1988,
+            "file_end_to_first_received_audio": 4883
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 4482
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2000,
+            "file_end_to_first_received_audio": 2918
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2319
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1818,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2666
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.353,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1942,
+            "file_end_to_first_received_audio": 3191,
+            "interrupt_file_end_to_transcript": 1858,
+            "interrupt_file_end_to_audio_after_transcript": 2704
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2686
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 669
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2275
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": false,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1761,
+            "file_end_to_first_received_audio": 2646
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2220
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5759704d3afe44e6868c54db4e509c03",
+      "fixture_set": "complex-v2",
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:whisper-podlodka-turbo",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.16,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2598,
+            "file_end_to_first_received_audio": 6401
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1912
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2491
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1526,
+              "ttft_ms": 675
+            },
+            {
+              "type": "response",
+              "duration_ms": 5076
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2198,
+              "ttfb_ms": 2157
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1873,
+              "ttfb_ms": 1861
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2107,
+            "file_end_to_first_received_audio": 7048
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1379
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1958
+            },
+            {
+              "type": "response",
+              "duration_ms": 5464
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2510,
+              "ttfb_ms": 2463
+            },
+            {
+              "type": "llm",
+              "duration_ms": 4250,
+              "ttft_ms": 966
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1803,
+              "ttfb_ms": 1792
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 944,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1234
+            },
+            {
+              "type": "eou",
+              "duration_ms": 801
+            },
+            {
+              "type": "stt",
+              "duration_ms": 1592
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1369,
+              "ttft_ms": 508
+            },
+            {
+              "type": "tts",
+              "duration_ms": 244
+            },
+            {
+              "type": "eou",
+              "duration_ms": 0
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1968,
+              "ttft_ms": 507
+            },
+            {
+              "type": "response",
+              "duration_ms": 5658
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2228,
+              "ttfb_ms": 2190
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2070,
+            "file_end_to_first_received_audio": 6686,
+            "interrupt_file_end_to_transcript": 1760,
+            "interrupt_file_end_to_audio_after_transcript": 5354
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1304
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1882
+            },
+            {
+              "type": "response",
+              "duration_ms": 5220
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2891,
+              "ttfb_ms": 2856
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "stt",
+              "duration_ms": 1050
+            },
+            {
+              "type": "llm",
+              "duration_ms": 13299,
+              "ttft_ms": 584
+            },
+            {
+              "type": "tts",
+              "duration_ms": 9359
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1629
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1031,
+              "ttft_ms": 794
+            },
+            {
+              "type": "response",
+              "duration_ms": 4098
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2011,
+              "ttfb_ms": 1995
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2292,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1605
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2177
+            },
+            {
+              "type": "llm",
+              "duration_ms": 970,
+              "ttft_ms": 965
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1165,
+              "ttft_ms": 671
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "58b7d31d94d84f9ab09993def78b3a7a",
+      "fixture_set": "complex-v2",
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2409,
+            "file_end_to_first_received_audio": 6794
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1696
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2275
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2035,
+              "ttft_ms": 939
+            },
+            {
+              "type": "response",
+              "duration_ms": 5953
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2974,
+              "ttfb_ms": 2931
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1800,
+              "ttfb_ms": 1789
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1797,
+            "file_end_to_first_received_audio": 6614
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1068
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1646
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2476,
+              "ttft_ms": 860
+            },
+            {
+              "type": "response",
+              "duration_ms": 5787
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3175,
+              "ttfb_ms": 3129
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 947,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1240
+            },
+            {
+              "type": "eou",
+              "duration_ms": 800
+            },
+            {
+              "type": "stt",
+              "duration_ms": 981
+            },
+            {
+              "type": "llm",
+              "duration_ms": 761,
+              "ttft_ms": 555
+            },
+            {
+              "type": "eou",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 4288
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1610,
+              "ttfb_ms": 1559
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2916,
+              "ttft_ms": 609
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2359,
+              "ttfb_ms": 2343
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2108,
+            "file_end_to_first_received_audio": 6170,
+            "interrupt_file_end_to_transcript": 1833,
+            "interrupt_file_end_to_audio_after_transcript": 4906
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1349
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1929
+            },
+            {
+              "type": "response",
+              "duration_ms": 5328
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2834,
+              "ttfb_ms": 2790
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 456
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2091,
+              "ttfb_ms": 2076
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2871,
+              "ttfb_ms": 2853
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2236,
+              "ttfb_ms": 2218
+            },
+            {
+              "type": "stt",
+              "duration_ms": 1088
+            },
+            {
+              "type": "llm",
+              "duration_ms": 12804,
+              "ttft_ms": 525
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1594
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1670
+            },
+            {
+              "type": "llm",
+              "duration_ms": 910,
+              "ttft_ms": 662
+            },
+            {
+              "type": "response",
+              "duration_ms": 4085
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2057,
+              "ttfb_ms": 2039
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1960,
+            "file_end_to_first_received_audio": 4629
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1267
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1846
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1826,
+              "ttft_ms": 1319
+            },
+            {
+              "type": "response",
+              "duration_ms": 3829
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1046,
+              "ttfb_ms": 1022
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73a385dbe7f14fc7bde6860ed0a9d375",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "onyx",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2272,
+            "file_end_to_first_received_audio": 6950,
+            "interrupt_file_end_to_transcript": 1435,
+            "interrupt_file_end_to_audio_after_transcript": 19341
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1568
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2147
+            },
+            {
+              "type": "response",
+              "duration_ms": 5463
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2520,
+              "ttfb_ms": 2477
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 451
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2557,
+              "ttfb_ms": 2531
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2297,
+              "ttfb_ms": 2249
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2078,
+              "ttfb_ms": 2064
+            },
+            {
+              "type": "stt",
+              "duration_ms": 761
+            },
+            {
+              "type": "llm",
+              "duration_ms": 13148,
+              "ttft_ms": 883
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2281
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1341
+            },
+            {
+              "type": "llm",
+              "duration_ms": 986,
+              "ttft_ms": 715
+            },
+            {
+              "type": "response",
+              "duration_ms": 18205
+            },
+            {
+              "type": "tts",
+              "duration_ms": 16457,
+              "ttfb_ms": 16438
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "78730a2a83e14dabb045ffe6ca8d11a1",
+      "fixture_set": "complex-v2",
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1971,
+            "file_end_to_first_received_audio": 5760
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1217
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1797
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1562,
+              "ttft_ms": 622
+            },
+            {
+              "type": "response",
+              "duration_ms": 4907
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2660,
+              "ttfb_ms": 2622
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1638,
+              "ttfb_ms": 1626
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1939,
+            "file_end_to_first_received_audio": 5557
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1194
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1767
+            },
+            {
+              "type": "response",
+              "duration_ms": 4698
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2453,
+              "ttfb_ms": 2418
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1948,
+              "ttfb_ms": 1934
+            },
+            {
+              "type": "llm",
+              "duration_ms": 5665,
+              "ttft_ms": 702
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1420,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 914
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1494
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2455,
+              "ttft_ms": 749
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3201,
+              "ttfb_ms": 3175
+            },
+            {
+              "type": "stt",
+              "duration_ms": 700
+            },
+            {
+              "type": "tts",
+              "duration_ms": 186
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1278
+            },
+            {
+              "type": "response",
+              "duration_ms": 5308
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3259,
+              "ttfb_ms": 3198
+            },
+            {
+              "type": "llm",
+              "duration_ms": 4918,
+              "ttft_ms": 711
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1805,
+            "file_end_to_first_received_audio": 5973,
+            "interrupt_file_end_to_transcript": 1456,
+            "interrupt_file_end_to_audio_after_transcript": 4276
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1005
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1585
+            },
+            {
+              "type": "response",
+              "duration_ms": 5077
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2737,
+              "ttfb_ms": 2687
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 448
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2432,
+              "ttfb_ms": 2411
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4703,
+              "ttfb_ms": 4664
+            },
+            {
+              "type": "stt",
+              "duration_ms": 706
+            },
+            {
+              "type": "llm",
+              "duration_ms": 12557,
+              "ttft_ms": 837
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1307
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1283
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1000,
+              "ttft_ms": 763
+            },
+            {
+              "type": "response",
+              "duration_ms": 3412
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1702,
+              "ttfb_ms": 1685
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1650,
+            "file_end_to_first_received_audio": 4778
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 954
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1532
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1492,
+              "ttft_ms": 1116
+            },
+            {
+              "type": "response",
+              "duration_ms": 3994
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1659,
+              "ttfb_ms": 1630
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7babdb3d0352410db21230ef1828751d",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "nova",
+      "config": {
+        "model": "openai/realtime-reference-aec0",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2080,
+            "file_end_to_first_received_audio": 3392,
+            "interrupt_file_end_to_transcript": 1832,
+            "interrupt_file_end_to_audio_after_transcript": 2964
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2925
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 288
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2565
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d7f3954c9ab48d7b0100c339f39cba7",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "nova",
+      "config": {
+        "model": "openai/realtime-reference",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 3.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.412,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1848,
+            "file_end_to_first_received_audio": 2753,
+            "interrupt_file_end_to_transcript": 1618,
+            "interrupt_file_end_to_audio_after_transcript": 2572
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2363
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 777
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2155
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "87c84f287ee24ba99342678fb2dce7fa",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "nova",
+      "config": {
+        "model": "openai/realtime-reference",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 3.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.353,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1728,
+            "file_end_to_first_received_audio": 3422,
+            "interrupt_file_end_to_transcript": 1658,
+            "interrupt_file_end_to_audio_after_transcript": 2376
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 3012
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 750
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 1961
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "98551b419a6f4dbf8ed724e3aa5354b1",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1887,
+            "file_end_to_first_received_audio": 5357,
+            "interrupt_file_end_to_transcript": 8042,
+            "interrupt_file_end_to_audio_after_transcript": 8054
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1128
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1707
+            },
+            {
+              "type": "response",
+              "duration_ms": 4495
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1850,
+              "ttfb_ms": 1805
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3324,
+              "ttfb_ms": 3291
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4244,
+              "ttfb_ms": 4204
+            },
+            {
+              "type": "response",
+              "duration_ms": 2001
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3827,
+              "ttfb_ms": 3803
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3150,
+              "ttfb_ms": 3128
+            },
+            {
+              "type": "stt",
+              "duration_ms": 7253
+            },
+            {
+              "type": "llm",
+              "duration_ms": 18451,
+              "ttft_ms": 1155
+            },
+            {
+              "type": "tts",
+              "duration_ms": 504
+            },
+            {
+              "type": "eou",
+              "duration_ms": 7838
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1840,
+              "ttft_ms": 949
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2053,
+              "ttfb_ms": 2017
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2535,
+              "ttfb_ms": 2511
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9a7df3dea56e4db8a480248a68f6b015",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "onyx",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 0,
+          "post_interrupt_answer_content_checked": null,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 3100,
+            "file_end_to_first_received_audio": 7774,
+            "interrupt_file_end_to_transcript": 1563,
+            "interrupt_file_end_to_audio_after_transcript": 4374
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 2376
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2947
+            },
+            {
+              "type": "response",
+              "duration_ms": 6940
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2393,
+              "ttfb_ms": 2350
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 448
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2494,
+              "ttfb_ms": 2481
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4119,
+              "ttfb_ms": 4085
+            },
+            {
+              "type": "stt",
+              "duration_ms": 872
+            },
+            {
+              "type": "llm",
+              "duration_ms": 13203,
+              "ttft_ms": 858
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1980
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1447
+            },
+            {
+              "type": "response",
+              "duration_ms": 3559
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1783,
+              "ttfb_ms": 1766
+            },
+            {
+              "type": "llm",
+              "duration_ms": 3688,
+              "ttft_ms": 616
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2250,
+              "ttfb_ms": 2235
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1414,
+              "ttfb_ms": 1405
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2327,
+              "ttfb_ms": 2310
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4079,
+              "ttfb_ms": 4028
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9d8a86c158144545a73d133f05a3870d",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "onyx",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2910,
+            "file_end_to_first_received_audio": 8665,
+            "interrupt_file_end_to_transcript": 1511,
+            "interrupt_file_end_to_audio_after_transcript": 4575
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 2180
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2756
+            },
+            {
+              "type": "response",
+              "duration_ms": 7849
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3901,
+              "ttfb_ms": 3842
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 451
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2655,
+              "ttfb_ms": 2631
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2355,
+              "ttfb_ms": 2330
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2064,
+              "ttfb_ms": 2050
+            },
+            {
+              "type": "stt",
+              "duration_ms": 803
+            },
+            {
+              "type": "llm",
+              "duration_ms": 14266,
+              "ttft_ms": 889
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1474
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1382
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1510,
+              "ttft_ms": 946
+            },
+            {
+              "type": "response",
+              "duration_ms": 3779
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1658,
+              "ttfb_ms": 1633
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2179,
+              "ttfb_ms": 2144
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9e143067f1446d78891b05ed0e47e5e",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "onyx",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1734,
+            "file_end_to_first_received_audio": 19405,
+            "interrupt_file_end_to_transcript": 1700,
+            "interrupt_file_end_to_audio_after_transcript": 5828
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 999
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1578
+            },
+            {
+              "type": "response",
+              "duration_ms": 17980
+            },
+            {
+              "type": "tts",
+              "duration_ms": 14714,
+              "ttfb_ms": 14657
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 6128,
+              "ttfb_ms": 6120
+            },
+            {
+              "type": "stt",
+              "duration_ms": 978
+            },
+            {
+              "type": "llm",
+              "duration_ms": 26387,
+              "ttft_ms": 887
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3229
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1559
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1238,
+              "ttft_ms": 991
+            },
+            {
+              "type": "response",
+              "duration_ms": 4586
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2357,
+              "ttfb_ms": 2339
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af65c16f5c58483b834ec86fde172751",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "nova",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1784,
+            "file_end_to_first_received_audio": 5726,
+            "interrupt_file_end_to_transcript": 947,
+            "interrupt_file_end_to_audio_after_transcript": 5085
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1044
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1637
+            },
+            {
+              "type": "response",
+              "duration_ms": 4923
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1820,
+              "ttfb_ms": 1784
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2271,
+              "ttfb_ms": 2243
+            },
+            {
+              "type": "stt",
+              "duration_ms": 778
+            },
+            {
+              "type": "llm",
+              "duration_ms": 7361,
+              "ttft_ms": 1359
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1201
+            },
+            {
+              "type": "eou",
+              "duration_ms": 801
+            },
+            {
+              "type": "stt",
+              "duration_ms": 699
+            },
+            {
+              "type": "eou",
+              "duration_ms": 0
+            },
+            {
+              "type": "llm",
+              "duration_ms": 940,
+              "ttft_ms": 685
+            },
+            {
+              "type": "response",
+              "duration_ms": 4223
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1796,
+              "ttfb_ms": 1779
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b7b2ef3871284de1b2c0eb978b377c5f",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "nova",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1800,
+            "file_end_to_first_received_audio": 12878,
+            "interrupt_file_end_to_transcript": 929,
+            "interrupt_file_end_to_audio_after_transcript": 12773
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1081
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1653
+            },
+            {
+              "type": "response",
+              "duration_ms": 11155
+            },
+            {
+              "type": "tts",
+              "duration_ms": 8974,
+              "ttfb_ms": 8920
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2384,
+              "ttfb_ms": 2345
+            },
+            {
+              "type": "stt",
+              "duration_ms": 567
+            },
+            {
+              "type": "llm",
+              "duration_ms": 14242,
+              "ttft_ms": 604
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1732
+            },
+            {
+              "type": "eou",
+              "duration_ms": 800
+            },
+            {
+              "type": "stt",
+              "duration_ms": 780
+            },
+            {
+              "type": "eou",
+              "duration_ms": 0
+            },
+            {
+              "type": "llm",
+              "duration_ms": 3218,
+              "ttft_ms": 1055
+            },
+            {
+              "type": "response",
+              "duration_ms": 11508
+            },
+            {
+              "type": "tts",
+              "duration_ms": 6729,
+              "ttfb_ms": 6703
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bdd1b860dc8542b2b7b00ae17663de1f",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "onyx",
+      "config": {
+        "model": "openai/realtime-reference",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 3.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.353,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1831,
+            "file_end_to_first_received_audio": 3714,
+            "interrupt_file_end_to_transcript": 2273,
+            "interrupt_file_end_to_audio_after_transcript": 3155
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 3309
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 591
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2721
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bfdf0a8b4c954f71bb8b23c45711d700",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "onyx",
+      "config": {
+        "model": "openai/realtime-reference",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 3.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.412,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1738,
+            "file_end_to_first_received_audio": 2636,
+            "interrupt_file_end_to_transcript": 1816,
+            "interrupt_file_end_to_audio_after_transcript": 2748
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2242
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 473
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2342
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "control-warm0early",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2,
+        "aec_warmup_seconds": 0.0,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "control-warm3early",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2,
+        "aec_warmup_seconds": 3.0,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 1.0,
+          "post_interrupt_assistant_turns": 0,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "control-warm3late",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2,
+        "aec_warmup_seconds": 3.0,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "d10315da4ed04ac895b69fb6b7d39281",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "onyx",
+      "config": {
+        "model": "openai/realtime-reference-aec0",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1850,
+            "file_end_to_first_received_audio": 2956,
+            "interrupt_file_end_to_transcript": 1802,
+            "interrupt_file_end_to_audio_after_transcript": 2617
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2529
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 228
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2202
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dfbc8ea44f3f4d318590a500b664305f",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "nova",
+      "config": {
+        "model": "openai/realtime-reference-aec0",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1760,
+            "file_end_to_first_received_audio": 2910,
+            "interrupt_file_end_to_transcript": 1782,
+            "interrupt_file_end_to_audio_after_transcript": 2630
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2519
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 292
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2184
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e61e62b814c94048bf9ebcc8027e62d0",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "nova",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": true,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1820,
+            "file_end_to_first_received_audio": 7890,
+            "interrupt_file_end_to_transcript": 1549,
+            "interrupt_file_end_to_audio_after_transcript": 6033
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1112
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1691
+            },
+            {
+              "type": "response",
+              "duration_ms": 6305
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2668,
+              "ttfb_ms": 2572
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 449
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2057,
+              "ttfb_ms": 2039
+            },
+            {
+              "type": "llm",
+              "duration_ms": 7908,
+              "ttft_ms": 1306
+            },
+            {
+              "type": "stt",
+              "duration_ms": 815
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1395
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1572,
+              "ttft_ms": 664
+            },
+            {
+              "type": "response",
+              "duration_ms": 4368
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2329,
+              "ttfb_ms": 2306
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1653,
+              "ttfb_ms": 1645
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1753,
+              "ttfb_ms": 1743
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb795c235e9c4f69a84604ad48178384",
+      "fixture_set": "complex-v2",
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2434,
+            "file_end_to_first_received_audio": 5950
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1708
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2281
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1568,
+              "ttft_ms": 690
+            },
+            {
+              "type": "response",
+              "duration_ms": 4654
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1955,
+              "ttfb_ms": 1916
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1858,
+              "ttfb_ms": 1839
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2311,
+            "file_end_to_first_received_audio": 6660
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1592
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2171
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2359,
+              "ttft_ms": 1041
+            },
+            {
+              "type": "response",
+              "duration_ms": 5171
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2118,
+              "ttfb_ms": 2062
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2226,
+              "ttfb_ms": 2206
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1668,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 979
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1558
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2476,
+              "ttft_ms": 758
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2395,
+              "ttfb_ms": 2369
+            },
+            {
+              "type": "stt",
+              "duration_ms": 917
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1235
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1496
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2737,
+              "ttft_ms": 609
+            },
+            {
+              "type": "response",
+              "duration_ms": 4421
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2479,
+              "ttfb_ms": 2464
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2322,
+              "ttfb_ms": 2298
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2399,
+            "file_end_to_first_received_audio": 7045,
+            "interrupt_file_end_to_transcript": 1744,
+            "interrupt_file_end_to_audio_after_transcript": 5272
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1649
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2228
+            },
+            {
+              "type": "response",
+              "duration_ms": 5494
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2715,
+              "ttfb_ms": 2670
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2049,
+              "ttfb_ms": 2027
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2543,
+              "ttfb_ms": 2519
+            },
+            {
+              "type": "stt",
+              "duration_ms": 1003
+            },
+            {
+              "type": "llm",
+              "duration_ms": 13355,
+              "ttft_ms": 408
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4878
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1581
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1008,
+              "ttft_ms": 761
+            },
+            {
+              "type": "response",
+              "duration_ms": 3909
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1897,
+              "ttfb_ms": 1884
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1927,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1204
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1775
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1279,
+              "ttft_ms": 1273
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1687,
+              "ttft_ms": 1111
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f01a58496616464c82e46a567ac733ba",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:whisper-podlodka-turbo",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.273,
+          "error_present": false
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 1.0,
+          "post_interrupt_assistant_turns": 0,
+          "error_present": false
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": false,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "f33c0915bfc84f56b78cb5b1f3f1fa91",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "openai/realtime-reference",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 3.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.353,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1736,
+            "file_end_to_first_received_audio": 3276,
+            "interrupt_file_end_to_transcript": 1682,
+            "interrupt_file_end_to_audio_after_transcript": 2728
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2746
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 679
+            },
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2320
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fix-gigaam",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "fix-openai",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "gpt-4o-mini-transcribe",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": false,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "fix-podlodka",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:whisper-podlodka-turbo",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": false,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "initial-gigaam",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "interruptions": true
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 1.0,
+          "post_interrupt_assistant_turns": 0,
+          "error_present": false
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "interruption-timeout5",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 5.0,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 1.0,
+          "post_interrupt_assistant_turns": 0,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "latency-gigaam-espeech",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1703,
+            "file_end_to_first_received_audio": 5926
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 971
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1550
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1941,
+              "ttft_ms": 498
+            },
+            {
+              "type": "response",
+              "duration_ms": 4573
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2600,
+              "ttfb_ms": 2558
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": true,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1567,
+            "file_end_to_first_received_audio": 6496
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 875
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1455
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2279,
+              "ttft_ms": 611
+            },
+            {
+              "type": "response",
+              "duration_ms": 5139
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3036,
+              "ttfb_ms": 2980
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1269,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 752
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1331
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1838,
+              "ttfb_ms": 1828
+            },
+            {
+              "type": "stt",
+              "duration_ms": 574
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2837,
+              "ttft_ms": 453
+            },
+            {
+              "type": "tts",
+              "duration_ms": 254
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1153
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2514,
+              "ttft_ms": 690
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1582,
+            "file_end_to_first_received_audio": 12226,
+            "interrupt_file_end_to_transcript": 1293,
+            "interrupt_file_end_to_audio_after_transcript": 4824
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 871
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1450
+            },
+            {
+              "type": "response",
+              "duration_ms": 10905
+            },
+            {
+              "type": "tts",
+              "duration_ms": 8815,
+              "ttfb_ms": 8778
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 451
+            },
+            {
+              "type": "llm",
+              "duration_ms": 13121,
+              "ttft_ms": 871
+            },
+            {
+              "type": "stt",
+              "duration_ms": 570
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4732
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1144
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2316,
+              "ttft_ms": 1014
+            },
+            {
+              "type": "response",
+              "duration_ms": 3676
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1811,
+              "ttfb_ms": 1794
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1622,
+              "ttfb_ms": 1609
+            },
+            {
+              "type": "tts",
+              "duration_ms": 11478,
+              "ttfb_ms": 11469
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2228,
+              "ttfb_ms": 2206
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1444,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 739
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1318
+            },
+            {
+              "type": "llm",
+              "duration_ms": 991,
+              "ttft_ms": 986
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1034,
+              "ttft_ms": 591
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latency-gigaam-qwen",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1845,
+            "file_end_to_first_received_audio": 6502
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1134
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1713
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1190,
+              "ttft_ms": 755
+            },
+            {
+              "type": "response",
+              "duration_ms": 5674
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3387,
+              "ttfb_ms": 3338
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1634,
+            "file_end_to_first_received_audio": 6029
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 952
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1530
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1942,
+              "ttft_ms": 577
+            },
+            {
+              "type": "response",
+              "duration_ms": 5241
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3156,
+              "ttfb_ms": 3108
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1187,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 921
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1499
+            },
+            {
+              "type": "stt",
+              "duration_ms": 528
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2560,
+              "ttft_ms": 564
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1787
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1108
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2713,
+              "ttft_ms": 889
+            },
+            {
+              "type": "response",
+              "duration_ms": 6095
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3915,
+              "ttfb_ms": 3858
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1581,
+            "file_end_to_first_received_audio": 5095,
+            "interrupt_file_end_to_transcript": 1308,
+            "interrupt_file_end_to_audio_after_transcript": 4420
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 868
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1447
+            },
+            {
+              "type": "response",
+              "duration_ms": 4289
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2325,
+              "ttfb_ms": 2280
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 449
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2167,
+              "ttfb_ms": 2148
+            },
+            {
+              "type": "stt",
+              "duration_ms": 588
+            },
+            {
+              "type": "llm",
+              "duration_ms": 7721,
+              "ttft_ms": 725
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2094
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1163
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1897,
+              "ttft_ms": 631
+            },
+            {
+              "type": "response",
+              "duration_ms": 3611
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2074,
+              "ttfb_ms": 2051
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1918,
+              "ttfb_ms": 1905
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1963,
+              "ttfb_ms": 1951
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4824,
+              "ttfb_ms": 4793
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1503,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 790
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1370
+            },
+            {
+              "type": "llm",
+              "duration_ms": 788,
+              "ttft_ms": 783
+            },
+            {
+              "type": "llm",
+              "duration_ms": 995,
+              "ttft_ms": 586
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latency-podlodka-espeech",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:whisper-podlodka-turbo",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2114,
+            "file_end_to_first_received_audio": 6507
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1358
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1936
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1320,
+              "ttft_ms": 667
+            },
+            {
+              "type": "response",
+              "duration_ms": 4853
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2474,
+              "ttfb_ms": 2408
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1911,
+              "ttfb_ms": 1901
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2187,
+            "file_end_to_first_received_audio": 7275
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1519
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2098
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2309,
+              "ttft_ms": 655
+            },
+            {
+              "type": "response",
+              "duration_ms": 5783
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2918,
+              "ttfb_ms": 2823
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 923,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1342
+            },
+            {
+              "type": "eou",
+              "duration_ms": 801
+            },
+            {
+              "type": "stt",
+              "duration_ms": 1261
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1034,
+              "ttft_ms": 807
+            },
+            {
+              "type": "eou",
+              "duration_ms": 0
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2481,
+              "ttft_ms": 652
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1989,
+            "file_end_to_first_received_audio": 5915,
+            "interrupt_file_end_to_transcript": 3304,
+            "interrupt_file_end_to_audio_after_transcript": 6248
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1292
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1870
+            },
+            {
+              "type": "response",
+              "duration_ms": 4460
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2199,
+              "ttfb_ms": 2149
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2022,
+              "ttfb_ms": 2009
+            },
+            {
+              "type": "response",
+              "duration_ms": 2001
+            },
+            {
+              "type": "stt",
+              "duration_ms": 2575
+            },
+            {
+              "type": "llm",
+              "duration_ms": 10136,
+              "ttft_ms": 630
+            },
+            {
+              "type": "tts",
+              "duration_ms": 4899
+            },
+            {
+              "type": "eou",
+              "duration_ms": 3155
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1901,
+              "ttft_ms": 631
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1790,
+              "ttfb_ms": 1777
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1618,
+              "ttfb_ms": 1612
+            },
+            {
+              "type": "tts",
+              "duration_ms": 5801,
+              "ttfb_ms": 5790
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2544,
+              "ttfb_ms": 2518
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1866,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1163
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1735
+            },
+            {
+              "type": "llm",
+              "duration_ms": 929,
+              "ttft_ms": 924
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1246,
+              "ttft_ms": 1112
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latency-podlodka-qwen",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:whisper-podlodka-turbo",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2371,
+            "file_end_to_first_received_audio": 6548
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1653
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2232
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1206,
+              "ttft_ms": 944
+            },
+            {
+              "type": "response",
+              "duration_ms": 5720
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2898,
+              "ttfb_ms": 2850
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2346,
+            "file_end_to_first_received_audio": 6856
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1645
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2224
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2461,
+              "ttft_ms": 771
+            },
+            {
+              "type": "response",
+              "duration_ms": 6041
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3225,
+              "ttfb_ms": 3181
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 897,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1455
+            },
+            {
+              "type": "eou",
+              "duration_ms": 801
+            },
+            {
+              "type": "stt",
+              "duration_ms": 909
+            },
+            {
+              "type": "eou",
+              "duration_ms": 0
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2072,
+              "ttft_ms": 642
+            },
+            {
+              "type": "response",
+              "duration_ms": 6860
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3854,
+              "ttfb_ms": 3796
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2301,
+            "file_end_to_first_received_audio": 6022,
+            "interrupt_file_end_to_transcript": 2062,
+            "interrupt_file_end_to_audio_after_transcript": 4981
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1626
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2204
+            },
+            {
+              "type": "response",
+              "duration_ms": 5249
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2523,
+              "ttfb_ms": 2484
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1983,
+              "ttfb_ms": 1970
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2652,
+              "ttfb_ms": 2623
+            },
+            {
+              "type": "stt",
+              "duration_ms": 1348
+            },
+            {
+              "type": "llm",
+              "duration_ms": 8674,
+              "ttft_ms": 595
+            },
+            {
+              "type": "tts",
+              "duration_ms": 381
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1927
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1973,
+              "ttft_ms": 679
+            },
+            {
+              "type": "response",
+              "duration_ms": 4166
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1788,
+              "ttfb_ms": 1775
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1417,
+              "ttfb_ms": 1405
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2289,
+              "ttfb_ms": 2276
+            },
+            {
+              "type": "tts",
+              "duration_ms": 3674,
+              "ttfb_ms": 3644
+            }
+          ]
+        },
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2184,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1477
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2050
+            },
+            {
+              "type": "llm",
+              "duration_ms": 929,
+              "ttft_ms": 924
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lightning-complex-en",
+      "fixture_set": "complex-v2-english-adaptation",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-lightning",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false,
+        "omni_task_hint": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 947,
+            "file_end_to_first_received_audio": 3388
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 802
+            },
+            {
+              "type": "eou",
+              "duration_ms": 0
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1330,
+              "ttft_ms": 682
+            },
+            {
+              "type": "response",
+              "duration_ms": 2445
+            },
+            {
+              "type": "tts",
+              "duration_ms": 750,
+              "ttfb_ms": 343
+            },
+            {
+              "type": "tts",
+              "duration_ms": 665,
+              "ttfb_ms": 365
+            },
+            {
+              "type": "tts",
+              "duration_ms": 515,
+              "ttfb_ms": 334
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 957,
+            "file_end_to_first_received_audio": 2346
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 800
+            },
+            {
+              "type": "response",
+              "duration_ms": 1543
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1013,
+              "ttfb_ms": 401
+            },
+            {
+              "type": "tts",
+              "duration_ms": 808,
+              "ttfb_ms": 397
+            },
+            {
+              "type": "tts",
+              "duration_ms": 909,
+              "ttfb_ms": 431
+            },
+            {
+              "type": "llm",
+              "duration_ms": 3779,
+              "ttft_ms": 582
+            },
+            {
+              "type": "tts",
+              "duration_ms": 501,
+              "ttfb_ms": 328
+            },
+            {
+              "type": "tts",
+              "duration_ms": 668,
+              "ttfb_ms": 379
+            },
+            {
+              "type": "tts",
+              "duration_ms": 637,
+              "ttfb_ms": 334
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1039,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 834
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1252,
+              "ttfb_ms": 405
+            },
+            {
+              "type": "llm",
+              "duration_ms": 2346,
+              "ttft_ms": 296
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1703,
+              "ttfb_ms": 351
+            },
+            {
+              "type": "eou",
+              "duration_ms": 878
+            },
+            {
+              "type": "response",
+              "duration_ms": 1568
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1333,
+              "ttfb_ms": 398
+            },
+            {
+              "type": "llm",
+              "duration_ms": 3511,
+              "ttft_ms": 395
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1383,
+              "ttfb_ms": 431
+            },
+            {
+              "type": "tts",
+              "duration_ms": 647,
+              "ttfb_ms": 378
+            },
+            {
+              "type": "tts",
+              "duration_ms": 817,
+              "ttfb_ms": 335
+            },
+            {
+              "type": "tts",
+              "duration_ms": 717,
+              "ttfb_ms": 336
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 904,
+            "file_end_to_first_received_audio": 2498,
+            "interrupt_file_end_to_transcript": 952,
+            "interrupt_file_end_to_audio_after_transcript": 2105
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 800
+            },
+            {
+              "type": "response",
+              "duration_ms": 1536
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1250,
+              "ttfb_ms": 412
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 452
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1092,
+              "ttfb_ms": 428
+            },
+            {
+              "type": "tts",
+              "duration_ms": 694,
+              "ttfb_ms": 430
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1226,
+              "ttfb_ms": 413
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1413,
+              "ttfb_ms": 399
+            },
+            {
+              "type": "tts",
+              "duration_ms": 722,
+              "ttfb_ms": 398
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1664,
+              "ttfb_ms": 462
+            },
+            {
+              "type": "llm",
+              "duration_ms": 9436,
+              "ttft_ms": 582
+            },
+            {
+              "type": "tts",
+              "duration_ms": 472,
+              "ttfb_ms": 393
+            },
+            {
+              "type": "eou",
+              "duration_ms": 805
+            },
+            {
+              "type": "response",
+              "duration_ms": 1331
+            },
+            {
+              "type": "tts",
+              "duration_ms": 816,
+              "ttfb_ms": 184
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1918,
+              "ttft_ms": 497
+            },
+            {
+              "type": "tts",
+              "duration_ms": 231,
+              "ttfb_ms": 137
+            },
+            {
+              "type": "tts",
+              "duration_ms": 337,
+              "ttfb_ms": 128
+            },
+            {
+              "type": "tts",
+              "duration_ms": 337,
+              "ttfb_ms": 133
+            },
+            {
+              "type": "tts",
+              "duration_ms": 336,
+              "ttfb_ms": 136
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manual-compare-mistral",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:whisper-podlodka-turbo",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.24,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 3141,
+            "file_end_to_first_received_audio": 7470
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 2411
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2992
+            },
+            {
+              "type": "llm",
+              "duration_ms": 3122,
+              "ttft_ms": 892
+            },
+            {
+              "type": "response",
+              "duration_ms": 6054
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2241,
+              "ttfb_ms": 2193
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1440,
+              "ttfb_ms": 1436
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manual-compare-qwen",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "qwen/qwen3.5-9b",
+        "stt": "nd:whisper-podlodka-turbo",
+        "tts": "nd:espeech-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": true,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2387,
+            "file_end_to_first_received_audio": 11858
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1609
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2195
+            },
+            {
+              "type": "llm",
+              "duration_ms": 6184,
+              "ttft_ms": 5667
+            },
+            {
+              "type": "response",
+              "duration_ms": 10113
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2685,
+              "ttfb_ms": 2635
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "omni-complex-en-20261116",
+      "fixture_set": "complex-v2-english-adaptation",
+      "fixture_voice": null,
+      "config": {
+        "model": "vast/nemotron-omni",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false,
+        "omni_task_hint": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 975,
+            "file_end_to_first_received_audio": 3515
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 800
+            },
+            {
+              "type": "omni_audio",
+              "duration_ms": 8950,
+              "captured_ms": 8950
+            },
+            {
+              "type": "response",
+              "duration_ms": 2501
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1978,
+              "ttfb_ms": 435
+            }
+          ]
+        },
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 953,
+            "file_end_to_first_received_audio": 2876
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 800
+            },
+            {
+              "type": "omni_audio",
+              "duration_ms": 6450,
+              "captured_ms": 7000
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1500,
+              "completed": true,
+              "ttft_ms": 795
+            },
+            {
+              "type": "response",
+              "duration_ms": 2071
+            },
+            {
+              "type": "tts",
+              "duration_ms": 736,
+              "ttfb_ms": 333
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 992,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 801
+            },
+            {
+              "type": "omni_audio",
+              "duration_ms": 3590,
+              "captured_ms": 4150
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1074,
+              "completed": true,
+              "ttft_ms": 675
+            },
+            {
+              "type": "tts",
+              "duration_ms": 638,
+              "ttfb_ms": 334
+            },
+            {
+              "type": "eou",
+              "duration_ms": 833
+            },
+            {
+              "type": "omni_audio",
+              "duration_ms": 3296,
+              "captured_ms": 3966
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1259,
+              "completed": true,
+              "ttft_ms": 654
+            },
+            {
+              "type": "response",
+              "duration_ms": 1872
+            },
+            {
+              "type": "tts",
+              "duration_ms": 742,
+              "ttfb_ms": 340
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1027,
+            "file_end_to_first_received_audio": 2698,
+            "interrupt_file_end_to_transcript": 956,
+            "interrupt_file_end_to_audio_after_transcript": 2929
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 882
+            },
+            {
+              "type": "omni_audio",
+              "duration_ms": 4650,
+              "captured_ms": 5200
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1283,
+              "completed": true,
+              "ttft_ms": 680
+            },
+            {
+              "type": "response",
+              "duration_ms": 1945
+            },
+            {
+              "type": "tts",
+              "duration_ms": 741,
+              "ttfb_ms": 338
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 448
+            },
+            {
+              "type": "eou",
+              "duration_ms": 804
+            },
+            {
+              "type": "omni_audio",
+              "duration_ms": 7507,
+              "captured_ms": 8167
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1364,
+              "completed": true,
+              "ttft_ms": 859
+            },
+            {
+              "type": "response",
+              "duration_ms": 1942
+            },
+            {
+              "type": "tts",
+              "duration_ms": 735,
+              "ttfb_ms": 331
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "param-noresume",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": false,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "param-words1",
+      "fixture_set": null,
+      "fixture_voice": null,
+      "config": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct",
+        "stt": "nd:gigaam-v3",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 1,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false
+        }
+      ]
+    },
+    {
+      "id": "qwen-stream-check",
+      "fixture_set": "complex-v2",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "qwen/qwen3.5-9b",
+        "stt": "nd:whisper-podlodka-turbo",
+        "tts": "nd:qwen3-tts",
+        "voice": "serena",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.36,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 2713,
+            "file_end_to_first_received_audio": 5343
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 1942
+            },
+            {
+              "type": "eou",
+              "duration_ms": 2524
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1684,
+              "ttft_ms": 750
+            },
+            {
+              "type": "response",
+              "duration_ms": 4019
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reference-tool-confirm",
+      "fixture_set": "complex-v2",
+      "fixture_voice": null,
+      "config": {
+        "model": "openai/realtime-reference",
+        "stt": "gpt-4o-transcribe",
+        "tts": "gpt-realtime-2.1-mini (audio)",
+        "voice": "marin",
+        "language": "ru",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.75,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 3.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "tool",
+          "call_contact_simulated": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1836,
+            "file_end_to_first_received_audio": 2785
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 0
+            },
+            {
+              "type": "response",
+              "duration_ms": 2392
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vast-gb10-english-smoke",
+      "fixture_set": "english-smoke",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-lightning",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": false,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 936,
+            "file_end_to_first_received_audio": 4149
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 930
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1517
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1150,
+              "ttft_ms": 713
+            },
+            {
+              "type": "response",
+              "duration_ms": 4025
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1997,
+              "ttfb_ms": 1912
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vast-gb10-interruption-smoke",
+      "fixture_set": "english-smoke",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-lightning",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": false,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "post_interrupt_answer_content_checked": true,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 1334,
+            "file_end_to_first_received_audio": 3841,
+            "interrupt_file_end_to_transcript": 1603,
+            "interrupt_file_end_to_audio_after_transcript": 3530
+          },
+          "provider_metrics": [
+            {
+              "type": "stt",
+              "duration_ms": 924
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1496
+            },
+            {
+              "type": "response",
+              "duration_ms": 3129
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1572,
+              "ttfb_ms": 1505
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 449
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2043,
+              "ttfb_ms": 2009
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2398,
+              "ttfb_ms": 2336
+            },
+            {
+              "type": "stt",
+              "duration_ms": 1057
+            },
+            {
+              "type": "llm",
+              "duration_ms": 7440,
+              "ttft_ms": 453
+            },
+            {
+              "type": "tts",
+              "duration_ms": 728
+            },
+            {
+              "type": "eou",
+              "duration_ms": 1640
+            },
+            {
+              "type": "llm",
+              "duration_ms": 921,
+              "ttft_ms": 918
+            },
+            {
+              "type": "response",
+              "duration_ms": 2865
+            },
+            {
+              "type": "tts",
+              "duration_ms": 854,
+              "ttfb_ms": 836
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vast-gb10-stream-interrupt",
+      "fixture_set": "english-smoke",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-lightning",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 915,
+            "file_end_to_first_received_audio": 2693,
+            "interrupt_file_end_to_transcript": 767,
+            "interrupt_file_end_to_audio_after_transcript": 1740
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 903
+            },
+            {
+              "type": "response",
+              "duration_ms": 1846
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 451
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2568,
+              "ttfb_ms": 705
+            },
+            {
+              "type": "llm",
+              "duration_ms": 5763,
+              "ttft_ms": 491
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2403,
+              "ttfb_ms": 503
+            },
+            {
+              "type": "eou",
+              "duration_ms": 868
+            },
+            {
+              "type": "llm",
+              "duration_ms": 702,
+              "ttft_ms": 554
+            },
+            {
+              "type": "response",
+              "duration_ms": 1191
+            },
+            {
+              "type": "tts",
+              "duration_ms": 673,
+              "ttfb_ms": 152
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vast-gb10-stream-smoke",
+      "fixture_set": "english-smoke",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-lightning",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "dictation",
+          "wer": 0.0,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 538,
+            "file_end_to_first_received_audio": 2328
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 800
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1167,
+              "ttft_ms": 669
+            },
+            {
+              "type": "response",
+              "duration_ms": 1790
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1445,
+              "ttfb_ms": 372
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vast-omni-concurrent",
+      "fixture_set": "english-omni",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-omni",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 556,
+            "file_end_to_first_received_audio": 2217,
+            "interrupt_file_end_to_transcript": 701,
+            "interrupt_file_end_to_audio_after_transcript": 2170
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 800
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1081,
+              "completed": true,
+              "ttft_ms": 681
+            },
+            {
+              "type": "response",
+              "duration_ms": 1653
+            },
+            {
+              "type": "tts",
+              "duration_ms": 640,
+              "ttfb_ms": 331
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 450
+            },
+            {
+              "type": "eou",
+              "duration_ms": 804
+            },
+            {
+              "type": "llm",
+              "duration_ms": 964,
+              "completed": true,
+              "ttft_ms": 657
+            },
+            {
+              "type": "response",
+              "duration_ms": 1544
+            },
+            {
+              "type": "tts",
+              "duration_ms": 529,
+              "ttfb_ms": 322
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vast-omni-concurrent-before-trim",
+      "fixture_set": "english-omni",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-omni",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 916,
+            "file_end_to_first_received_audio": 2840,
+            "interrupt_file_end_to_transcript": 843,
+            "interrupt_file_end_to_audio_after_transcript": 2405
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 802
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1278,
+              "completed": true,
+              "ttft_ms": 777
+            },
+            {
+              "type": "response",
+              "duration_ms": 1877
+            },
+            {
+              "type": "tts",
+              "duration_ms": 867,
+              "ttfb_ms": 357
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 400
+            },
+            {
+              "type": "eou",
+              "duration_ms": 801
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1180,
+              "completed": true,
+              "ttft_ms": 776
+            },
+            {
+              "type": "response",
+              "duration_ms": 1753
+            },
+            {
+              "type": "tts",
+              "duration_ms": 629,
+              "ttfb_ms": 330
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vast-omni-english",
+      "fixture_set": "english-omni",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-omni",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false
+      },
+      "cases": [
+        {
+          "case": "pause_short",
+          "turns_match": true,
+          "expected_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 937,
+            "file_end_to_first_received_audio": 2539
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 837
+            },
+            {
+              "type": "llm",
+              "duration_ms": 976,
+              "completed": true,
+              "ttft_ms": 777
+            },
+            {
+              "type": "response",
+              "duration_ms": 1622
+            },
+            {
+              "type": "tts",
+              "duration_ms": 666,
+              "ttfb_ms": 363
+            }
+          ]
+        },
+        {
+          "case": "pause_long",
+          "turns_match": true,
+          "expected_turns": 2,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 981,
+            "file_end_to_first_received_audio": null
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 800
+            },
+            {
+              "type": "llm",
+              "duration_ms": 982,
+              "completed": true,
+              "ttft_ms": 782
+            },
+            {
+              "type": "tts",
+              "duration_ms": 675,
+              "ttfb_ms": 332
+            },
+            {
+              "type": "eou",
+              "duration_ms": 880
+            },
+            {
+              "type": "llm",
+              "duration_ms": 960,
+              "completed": true,
+              "ttft_ms": 757
+            },
+            {
+              "type": "response",
+              "duration_ms": 1611
+            },
+            {
+              "type": "tts",
+              "duration_ms": 633,
+              "ttfb_ms": 331
+            }
+          ]
+        },
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 959,
+            "file_end_to_first_received_audio": 2660,
+            "interrupt_file_end_to_transcript": 727,
+            "interrupt_file_end_to_audio_after_transcript": 2411
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 883
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1084,
+              "completed": true,
+              "ttft_ms": 786
+            },
+            {
+              "type": "response",
+              "duration_ms": 1750
+            },
+            {
+              "type": "tts",
+              "duration_ms": 730,
+              "ttfb_ms": 333
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 452
+            },
+            {
+              "type": "eou",
+              "duration_ms": 845
+            },
+            {
+              "type": "llm",
+              "duration_ms": 1111,
+              "completed": true,
+              "ttft_ms": 909
+            },
+            {
+              "type": "response",
+              "duration_ms": 1736
+            },
+            {
+              "type": "tts",
+              "duration_ms": 633,
+              "ttfb_ms": 332
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vast-omni-taskhint-interrupt",
+      "fixture_set": "english-omni",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-omni",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false,
+        "omni_task_hint": true
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 850,
+            "file_end_to_first_received_audio": 3250,
+            "interrupt_file_end_to_transcript": 456,
+            "interrupt_file_end_to_audio_after_transcript": 1712
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 845
+            },
+            {
+              "type": "omni_audio",
+              "duration_ms": 3150,
+              "captured_ms": 3700
+            },
+            {
+              "type": "response",
+              "duration_ms": 2305
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 448
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2012,
+              "ttfb_ms": 448
+            },
+            {
+              "type": "llm",
+              "duration_ms": 5734,
+              "completed": false,
+              "ttft_ms": 675
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2149,
+              "ttfb_ms": 454
+            },
+            {
+              "type": "eou",
+              "duration_ms": 929
+            },
+            {
+              "type": "omni_audio",
+              "duration_ms": 2888,
+              "captured_ms": 3528
+            },
+            {
+              "type": "llm",
+              "duration_ms": 964,
+              "completed": true,
+              "ttft_ms": 661
+            },
+            {
+              "type": "response",
+              "duration_ms": 1494
+            },
+            {
+              "type": "tts",
+              "duration_ms": 299,
+              "ttfb_ms": 139
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vast-omni-taskhint-interrupt-before-preroll",
+      "fixture_set": "english-omni",
+      "fixture_voice": "alloy",
+      "config": {
+        "model": "vast/nemotron-omni",
+        "stt": "vast:nemotron-en",
+        "tts": "vast:magpie",
+        "voice": "John",
+        "language": "en",
+        "endpoint_seconds": 0.8,
+        "vad_threshold": 0.5,
+        "vad_silence": 0.55,
+        "temperature": 0.6,
+        "reasoning": "off",
+        "tts_stream": true,
+        "preemptive_generation": false,
+        "interruption_seconds": 0.5,
+        "false_interruption_timeout": 2.0,
+        "aec_warmup_seconds": 0.0,
+        "interruption_min_words": 0,
+        "resume_false_interruption": true,
+        "interruptions": true,
+        "benchmark_tools": false,
+        "omni_task_hint": true
+      },
+      "cases": [
+        {
+          "case": "interruption",
+          "initial_audio_received": true,
+          "interrupt_metric_received": true,
+          "interrupt_wer": 0.0,
+          "interrupt_request_preserved": true,
+          "post_interrupt_assistant_turns": 1,
+          "error_present": false,
+          "latency_ms": {
+            "file_end_to_first_transcript": 945,
+            "file_end_to_first_received_audio": 3489,
+            "interrupt_file_end_to_transcript": 893,
+            "interrupt_file_end_to_audio_after_transcript": 1966
+          },
+          "provider_metrics": [
+            {
+              "type": "eou",
+              "duration_ms": 838
+            },
+            {
+              "type": "response",
+              "duration_ms": 2303
+            },
+            {
+              "type": "interrupt",
+              "duration_ms": 451
+            },
+            {
+              "type": "tts",
+              "duration_ms": 2002,
+              "ttfb_ms": 466
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1401,
+              "ttfb_ms": 445
+            },
+            {
+              "type": "llm",
+              "duration_ms": 6345,
+              "completed": false,
+              "ttft_ms": 712
+            },
+            {
+              "type": "tts",
+              "duration_ms": 1376,
+              "ttfb_ms": 444
+            },
+            {
+              "type": "eou",
+              "duration_ms": 886
+            },
+            {
+              "type": "llm",
+              "duration_ms": 851,
+              "completed": true,
+              "ttft_ms": 744
+            },
+            {
+              "type": "response",
+              "duration_ms": 1351
+            },
+            {
+              "type": "tts",
+              "duration_ms": 203,
+              "ttfb_ms": 155
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
