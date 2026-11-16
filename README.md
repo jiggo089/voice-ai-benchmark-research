@@ -52,6 +52,41 @@ Each dot is an individual run, **not a model-only score**. Runs within a row may
 
 Latency ranges reflect only recorded runs with a dictation audio measurement, not percentiles or a controlled comparison. Other models shown in the UI but absent from this table have no such saved measurement in this dataset. See the per-language and interruption sections for quality and scenario details.
 
+## Configuration matrix: STT + LLM + TTS
+
+This inventory covers all **59 saved synthetic run records**. Counts are records, not independent repetitions of the same scenario. `Input voice` is the synthetic speaker in the test clip; `output voice` is the model's TTS voice. Different functions, streaming settings and fixture sets may occur within one row; exact per-run settings are in [runs.json](data/runs.json).
+
+| Language | STT | LLM / inference | TTS / output voice | Records |
+|---|---|---|---|---:|
+| RU | GPT-4o Transcribe (transcript) | OpenAI Realtime, AEC 3 s | Native Realtime / marin | 8 |
+| RU | GPT-4o Transcribe (transcript) | OpenAI Realtime, AEC 0 s | Native Realtime / marin | 6 |
+| RU | GigaAM v3 / NeuralDeep | Mistral Small 3.1 / OpenRouter | Qwen3-TTS / serena | 17 |
+| RU | GigaAM v3 / NeuralDeep | Mistral Small 3.1 / OpenRouter | ESpeech / serena | 7 |
+| RU | Whisper Podlodka Turbo / NeuralDeep | Mistral Small 3.1 / OpenRouter | Qwen3-TTS / serena | 4 |
+| RU | Whisper Podlodka Turbo / NeuralDeep | Mistral Small 3.1 / OpenRouter | ESpeech / serena | 3 |
+| RU | GPT-4o mini Transcribe | Mistral Small 3.1 / OpenRouter | Qwen3-TTS / serena | 1 |
+| RU | Whisper Podlodka Turbo / NeuralDeep | Qwen3.5 9B / OpenRouter | ESpeech / serena | 1 |
+| RU | Whisper Podlodka Turbo / NeuralDeep | Qwen3.5 9B / OpenRouter | Qwen3-TTS / serena | 1 |
+| EN | Nemotron Speech Streaming EN / GB10 | Nemotron Lightning / llama.cpp | Magpie / John | 5 |
+| EN | Nemotron Speech Streaming EN / GB10; Omni also receives turn audio | Nemotron Omni / vLLM | Magpie / John | 6 |
+
+### What did the input voice change?
+
+![Interruption measurements by synthetic input voice](charts/input-voice-interruption.png)
+
+This is the controlled early-interruption subset: **Alloy 1 run, Nova 2 and Onyx 2 per configuration**. These are voices that generated the user's test recording, not the assistant's output voices. Every dot is one measured response; a color is not an average and does not identify the TTS engine. The input clip content was the same, but the runs were sequential and hosted-service load was uncontrolled.
+
+| Configuration | Alloy: interruption WER; response audio | Nova: WER; response audio | Onyx: WER; response audio |
+|---|---|---|---|
+| OpenAI Realtime, AEC 3 s | 35.3%; 2.73 s | 41.2%, 35.3%; 2.57, 2.38 s | 35.3%, 41.2%; 3.16, 2.75 s |
+| OpenAI Realtime, AEC 0 s | 0%; 4.03 s | 0%, 0%; 2.96, 2.63 s | 0%, 0%; 3.39, 2.62 s |
+| GigaAM + Mistral + Qwen3-TTS | 0%; 8.05 s | 0%, 0%; 4.53, 5.09 s | 0%, 0%; 4.37, 4.58 s |
+| GigaAM + Mistral + ESpeech | 0%; 5.08 s | 0%, 0%; 12.77, 6.03 s | 0%, 0%; 19.34, 5.83 s |
+
+The 3-second AEC baseline lost words with all three input voices; the other three configurations had WER 0% for every recorded voice in this small subset. Latency varied substantially even between repetitions of the **same** voice, especially with ESpeech. With one Alloy sample and two each for Nova and Onyx, there is **no defensible estimate of a voice effect** or causal attribution. One Qwen3-TTS answer was not evaluated and one ESpeech run logged a service error; audio receipt alone does not establish answer quality.
+
+**Assistant output-voice effect remains untested:** the table above holds each configuration's output voice fixed (serena, marin or John). It cannot tell whether a different assistant voice would change TTS speed, naturalness or intelligibility. Test this separately by varying only the output voice, using identical text, settings and repeated runs.
+
 ## System architecture
 
 ### Text cascade
@@ -215,7 +250,7 @@ The original GB10 instance has been deleted. The [example service launch files](
 
 ```text
 README.md                  Full report and methodology
-charts/                    Six reproducible charts
+charts/                    Seven reproducible charts
 code/benchmark_suite.py    Synthetic LiveKit test client and metrics
 code/example_lightning_complex_en.py  English scenario example
 code/*_stream.py           Nemotron / Magpie research adapters

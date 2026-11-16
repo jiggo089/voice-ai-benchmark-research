@@ -58,3 +58,11 @@ fig,ax=plt.subplots(figsize=(11,4.8))
 for i,(model,values) in enumerate(buckets.items()):
  ax.scatter(values,[i]*len(values),s=58,alpha=.75,color='#34836c',edgecolors='white');ax.text(max(values)+.15,i,f'n={len(values)}',va='center',fontsize=9)
 ax.set_yticks(range(len(buckets)),[labels.get(k,k) for k in buckets]);ax.set_xlabel('Seconds from end of recording to first received audio');ax.set_title('All recorded dictation timings · different pipelines and scenarios',loc='left',fontweight='bold');ax.set_xlim(0,max(max(v) for v in buckets.values())+1.4);ax.grid(axis='x',alpha=.2);ax.set_axisbelow(True);fig.tight_layout();fig.savefig(ROOT/'charts/all-models-overview.png',dpi=160)
+
+fig,ax=plt.subplots(figsize=(10,4.5))
+colors={'alloy':'#337e68','nova':'#de9a37','onyx':'#6776ad'}
+for i,(label,cases) in enumerate(selected.items()):
+ for voice in ('alloy','nova','onyx'):
+  values=[r['cases'][0]['latency_ms']['interrupt_file_end_to_audio_after_transcript']/1000 for r in runs.values() if r.get('fixture_set')=='complex-v2' and r.get('fixture_voice')==voice and r['config'].get('model')==groups[label][0] and r['config'].get('tts')==groups[label][1] and len(r.get('cases',[]))==1 and r['cases'][0].get('case')=='interruption']
+  ax.scatter(values,[i]*len(values),label=voice if i==0 else None,color=colors[voice],s=60,alpha=.8,edgecolors='white')
+ax.set_yticks(range(len(selected)),list(selected));ax.set_xlabel('Seconds after interrupting recording to received audio');ax.set_title('Input fixture voices: individual interruption runs',loc='left',fontweight='bold');ax.legend(title='Synthetic input voice',loc='lower right');ax.grid(axis='x',alpha=.2);ax.set_axisbelow(True);fig.tight_layout();fig.savefig(ROOT/'charts/input-voice-interruption.png',dpi=160)
