@@ -35,6 +35,23 @@ The repository includes the research findings, charts, anonymized synthetic run 
 - [Reproducing the measurements](#reproducing-the-measurements)
 - [Next experiments](#next-experiments)
 
+## Overall results: all tested language models
+
+![All recorded dictation timings by model](charts/all-models-overview.png)
+
+Each dot is an individual run, **not a model-only score**. Runs within a row may use different STT/TTS, settings or fixture sets; Russian and English recordings differ. Missing measurements are excluded. The chart is an overview, not a comparable ranking.
+
+| LLM / voice model | Access | Language | Deployment in this test | Recorded dictation audio latency | Runs |
+|---|---|---|---|---:|---:|
+| OpenAI Realtime, AEC 3 s | Closed | Russian | Cloud realtime | 4.16–4.88 s | 2 |
+| OpenAI Realtime, AEC 0 s | Closed | Russian | Cloud realtime | 5.01 s | 1 |
+| Mistral Small 3.1 24B | Published weights | Russian | OpenRouter + NeuralDeep | 5.76–7.47 s | 8 |
+| Qwen3.5 9B | Published weights | Russian | OpenRouter + NeuralDeep | 5.34–11.86 s | 2 |
+| Nemotron Omni 30B A3B | Published weights | English | GB10 + Nemotron STT + Magpie | 3.52 s | 1 |
+| Nemotron Lightning 30B A3B | Published weights | English | GB10 + Nemotron STT + Magpie | 2.33–4.15 s | 3 |
+
+Latency ranges reflect only recorded runs with a dictation audio measurement, not percentiles or a controlled comparison. Other models shown in the UI but absent from this table have no such saved measurement in this dataset. See the per-language and interruption sections for quality and scenario details.
+
 ## System architecture
 
 ### Text cascade
@@ -198,7 +215,7 @@ The original GB10 instance has been deleted. The [example service launch files](
 
 ```text
 README.md                  Full report and methodology
-charts/                    Five reproducible charts
+charts/                    Six reproducible charts
 code/benchmark_suite.py    Synthetic LiveKit test client and metrics
 code/example_lightning_complex_en.py  English scenario example
 code/*_stream.py           Nemotron / Magpie research adapters

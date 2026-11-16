@@ -44,3 +44,17 @@ ids=['omni-complex-en-20261116','lightning-complex-en']
 labels=['Omni · audio input','Lightning · text cascade']
 values=[next(c for c in runs[i]['cases'] if c['case']=='interruption')['latency_ms']['interrupt_file_end_to_audio_after_transcript']/1000 for i in ids]
 fig,ax=plt.subplots(figsize=(9,3.5));bars=ax.barh(labels[::-1],values[::-1],color=['#6a9ea4','#28624f']);ax.bar_label(bars,fmt='%.2f s',padding=4);ax.set_xlim(0,4);ax.set_xlabel('Seconds from end of interruption to first received audio');ax.set_title('English GB10: interruption · one run each',loc='left',fontweight='bold');ax.grid(axis='x',alpha=.2);ax.set_axisbelow(True);fig.tight_layout();fig.savefig(ROOT/'charts/english-interruption.png',dpi=160)
+
+# All recorded dictation audio latencies; points are individual runs, not comparable model-only timings.
+from collections import defaultdict
+buckets=defaultdict(list)
+for r in runs.values():
+ for c in r.get('cases',[]):
+  v=c.get('latency_ms',{}).get('file_end_to_first_received_audio')
+  if c.get('case')=='dictation' and isinstance(v,(int,float)):
+   m=r['config'].get('model','unknown'); buckets[m].append(v/1000)
+labels={'openai/realtime-reference':'OpenAI Realtime · RU','openai/realtime-reference-aec0':'OpenAI Realtime, AEC 0 · RU','mistralai/mistral-small-3.1-24b-instruct':'Mistral Small 3.1 · RU','qwen/qwen3.5-9b':'Qwen3.5 9B · RU','vast/nemotron-omni':'Nemotron Omni · EN','vast/nemotron-lightning':'Nemotron Lightning · EN'}
+fig,ax=plt.subplots(figsize=(11,4.8))
+for i,(model,values) in enumerate(buckets.items()):
+ ax.scatter(values,[i]*len(values),s=58,alpha=.75,color='#34836c',edgecolors='white');ax.text(max(values)+.15,i,f'n={len(values)}',va='center',fontsize=9)
+ax.set_yticks(range(len(buckets)),[labels.get(k,k) for k in buckets]);ax.set_xlabel('Seconds from end of recording to first received audio');ax.set_title('All recorded dictation timings · different pipelines and scenarios',loc='left',fontweight='bold');ax.set_xlim(0,max(max(v) for v in buckets.values())+1.4);ax.grid(axis='x',alpha=.2);ax.set_axisbelow(True);fig.tight_layout();fig.savefig(ROOT/'charts/all-models-overview.png',dpi=160)
